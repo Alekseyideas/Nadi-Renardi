@@ -1,0 +1,11 @@
+{
+  "name": "NadiRenardi",
+  "version": "0.0.1",
+  "devDependencies": {
+    "jquery": "^3.2.1",
+    "owl.carousel": "OwlCarousel2#^2.2.1",
+    "magnific-popup": "^1.1.0",
+    "font-awesome": "FortAwesome/Font-Awesome#^4.7.0",
+    "modernizr": "^3.5.0"
+  }
+}

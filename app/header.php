@@ -19,4 +19,22 @@
     <link rel="stylesheet" href="css/main.min.css?<?php echo rand(0,100)?>">
 </head>
 <body>
+<header>
+    <div class="wrap">
+        <div class="row v-center">
+            <a href="/" id="logo"></a>
+            <a href="tel:+380986408690" class="tel">+38 098 640 86 90</a>
+            <div class="row lang_fav_cart_prof v-center">
+                <div class="language">
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    <a href="#" class="ukr active">Урк</a>
+                    <a href="#" class="rus">Рус</a>
+                </div>
+                <div class="enter">
+                    <a href="#">Вхiд <i class="fa fa-user-o" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 

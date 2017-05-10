@@ -10,6 +10,7 @@ const   gulp  = require('gulp'),
         uglify = require('gulp-uglifyjs'),
         del = require('del'),
         autoprefixer = require('gulp-autoprefixer'),
+        babel = require('gulp-babel'),
         rename = require("gulp-rename");
 
 gulp.task('default', function () {
@@ -42,12 +43,11 @@ gulp.task('scripts', function () {
 });
 
 gulp.task('ts', function () {
-    return gulp.src('app/**/*.ts')
-        .pipe(ts({
-            noImplicitAny: true,
-            out: 'main.js'
+    return gulp.src('app/es6/*.js')
+        .pipe(babel({
+            presets: ['es2015']
         }))
-
+        .pipe(concat('main.js'))
         .pipe(gulp.dest('app/js'));
 });
 
@@ -77,7 +77,7 @@ gulp.task('clean',function () {
 gulp.task('watch', ['browesrSynk', 'cssnano','ts','js_mini'], function () {
     gulp.watch('app/sass/*.sass',['default']);
     gulp.watch(['app/css/*.css','!app/css/*.min.css'],['cssnano']);
-    gulp.watch('app/ts/*.ts',['ts']);
+    gulp.watch('app/es6/*.js',['ts']);
     gulp.watch(['app/js/*.js','!app/js/*.min.js'],['js_mini']);
     gulp.watch('app/**/*.php').on('change', browserSync.reload);
 });

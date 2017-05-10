@@ -92,9 +92,9 @@ gulp.task('build', ['clean','cssnano','ts','js_mini'], function () {
    let buildImg = gulp.src('app/img/**/*')
        .pipe(gulp.dest('dist/img'));
    let buildJs = gulp.src([
-        'app/js/*.js',
+        'app/js/*.js'
     ])
         .pipe(gulp.dest('dist/js'));
-   let buildTemp= gulp.src('app/*.php')
+   let buildTemp = gulp.src('app/*.php')
         .pipe(gulp.dest('dist'))
 });

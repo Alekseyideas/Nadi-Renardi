@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="css/libs.min.css?<?php echo rand(0,100)?>">
     <link rel="stylesheet" href="css/main.min.css?<?php echo rand(0,100)?>">
 </head>
-<body>
+<body class="unregistered">
 <header>
     <div class="wrap">
         <div class="row v-center">
@@ -32,6 +32,17 @@
                 </div>
                 <div class="enter">
                     <a href="#">Вхiд <i class="fa fa-user-o" aria-hidden="true"></i></a>
+                </div>
+                <span class="delimiter">|</span>
+                <div class="wish empty-wish">
+                    <i class="fa fa-heart-o empty--wish" aria-hidden="true"></i>
+                    <a href="#"><i class="fa fa-heart" aria-hidden="true" ></i>
+                    <span></span>
+                    </a>
+                    <div class="message-empty">
+                        <h4>Список бажань порожній</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+                    </div>
                 </div>
             </div>
         </div>

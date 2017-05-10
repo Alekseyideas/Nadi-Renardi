@@ -7,6 +7,9 @@ body {
   font-weight: 400;
   font-size: 14px; }
 
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0; }
+
 div, section, article, header, footer {
   display: block;
   box-sizing: border-box; }
@@ -119,11 +122,58 @@ header {
   .language .rus {
     display: none; }
 
-.language:hover .rus {
-  display: block; }
+.delimiter {
+  margin: 0 10px; }
 
 .enter {
   margin-left: 20px; }
+
+.lang_fav_cart_prof i {
+  font-size: 20px;
+  cursor: pointer; }
+
+.message-empty {
+  position: absolute;
+  top: 30px;
+  background: white;
+  z-index: 1;
+  border: 1px solid black;
+  border-radius: 4px;
+  width: 300px;
+  right: -15px;
+  padding: 5px 8px;
+  display: none; }
+  .message-empty h4 {
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: normal;
+    display: block; }
+  .message-empty p {
+    font-size: 12px;
+    margin-top: 5px; }
+
+.message-empty:after {
+  content: "\f0d8";
+  font-family: FontAwesome;
+  position: absolute;
+  right: 17px;
+  font-size: 25px;
+  top: -18px;
+  color: #b3b3b3; }
+
+.wish {
+  position: relative;
+  cursor: pointer; }
+
+.unregistered .wish a {
+  display: none; }
+
+.empty-wish a {
+  display: none; }
+
+.empty-wish:hover .message-empty {
+  display: block;
+  cursor: default; }
 
 @media (min-width: 768px) {
   body {
@@ -134,7 +184,9 @@ header {
     padding: 0; }
   .wrap {
     padding: 0;
-    width: 1160px; } }
+    width: 1160px; }
+  .language:hover .rus {
+    display: block; } }
 
 @media (min-width: 1500px) {
   body {

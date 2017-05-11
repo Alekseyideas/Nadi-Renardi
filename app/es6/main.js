@@ -20,5 +20,47 @@ $(document).ready(function () {
         wrapper_wish.removeClass('empty-wish');
     }
 
+    $(".slider_desktop").owlCarousel(
+        {
+            items:1,
+            loop: true,
+            autoWidth: false,
+            slideSpeed : 300,
+            paginationSpeed : 400,
+            singleItem: true,
+            pagination: false,
+            rewindSpeed: 500,
+            autoplayHoverPause:true,
+            autoplay: true,
+            smartSpeed: 1000,
+            dots: true,
+
+        }
+    );
+    $(".wrapper-products").owlCarousel(
+        {
+            items:4,
+            loop: true,
+            autoWidth: false,
+            slideSpeed : 300,
+            paginationSpeed : 400,
+            singleItem: true,
+            pagination: false,
+            rewindSpeed: 500,
+            autoplayHoverPause:true,
+            autoplay: true,
+            smartSpeed: 1000,
+            dots: true,
+
+        }
+    );
+    let slider_dots = $('.slider_desktop').find('.owl-dots');
+    let width_slider_dots = slider_dots.width();
+
+    slider_dots.css({
+        'margin-left': `-${width_slider_dots/2}px`
+    });
+
+    console.log($('.slider_desktop').find('.owl-dots').width());
 
 });

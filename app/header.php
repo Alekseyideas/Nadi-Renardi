@@ -18,6 +18,9 @@
     <link rel="stylesheet" href="css/libs.min.css?<?php echo rand(0,100)?>">
     <link rel="stylesheet" href="css/main.min.css?<?php echo rand(0,100)?>">
 </head>
+<!--templates-->
+<?php include 't-product.php'?>
+<!--////templates-->
 <body class="unregistered">
 <header>
 
@@ -81,11 +84,9 @@
                 </ul>
             </div>
             <div class="search">
-                <form action="" class="row  v-center">
-                    <input type="search">
-
+                <form action="" class="row  v-center right">
+                    <input type="search" class="field-search">
                     <button class="btn_search" type="submit"></button>
-
                 </form>
 
             </div>

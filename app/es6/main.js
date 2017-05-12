@@ -1,9 +1,9 @@
 $(document).ready(function () {
-    const count_car = $('.main-cart').find('.count');
-    const wrapper_cart = $('.main-cart');
-    const count_wish = $('.wish').find('.count');
     const wrapper_wish = $('.wish');
-    const active_wish = $('.wish').find('a');
+    const wrapper_cart = $('.main-cart');
+    const count_car = wrapper_cart.find('.count');
+    const count_wish = wrapper_wish.find('.count');
+    const active_wish = wrapper_wish.find('a');
     if (count_car.is(':empty')){
         count_car.hide();
         wrapper_cart.addClass('empty-card');
@@ -20,7 +20,9 @@ $(document).ready(function () {
         wrapper_wish.removeClass('empty-wish');
     }
 
-    $(".slider_desktop").owlCarousel(
+    let main_slider = $(".slider_desktop");
+
+    main_slider.owlCarousel(
         {
             items:1,
             loop: true,
@@ -39,7 +41,6 @@ $(document).ready(function () {
     );
     $(".wrapper-products").owlCarousel(
         {
-            items:4,
             loop: true,
             autoWidth: false,
             slideSpeed : 300,
@@ -50,17 +51,60 @@ $(document).ready(function () {
             autoplayHoverPause:true,
             autoplay: true,
             smartSpeed: 1000,
-            dots: true,
+            navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>'],
+            responsive:{
+                0:{
+                    items:1,
+                    dots: true,
+                    nav:false,
+                },
+                600:{
+                    items:2,
+                    dots: false,
+                    nav:false,
+                },
+                1000:{
+                    items:4,
+                    dots: false,
+                    nav:true,
+                }
+            }
 
         }
     );
-    let slider_dots = $('.slider_desktop').find('.owl-dots');
+    let slider_dots = main_slider.find('.owl-dots');
     let width_slider_dots = slider_dots.width();
 
     slider_dots.css({
         'margin-left': `-${width_slider_dots/2}px`
     });
 
-    console.log($('.slider_desktop').find('.owl-dots').width());
+
+
+
+
+
+
+    function WidthImage() {
+        let i=1;
+        let image;
+        while (i<4){
+            i++;
+            image = $(`.blocks-${i-1}`).find('img');
+            image.css({
+                'margin-left': `-${image.width()/2}px`
+            });
+            $(window).resize(function () {
+                image = $(`.blocks-${i-1}`).find('img');
+                image.css({
+                    'margin-left': `-${image.width()/2}px`
+                });
+            })
+        }
+    }
+
+    WidthImage();
+
+
 
 });

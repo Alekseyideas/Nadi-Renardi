@@ -45,29 +45,77 @@
     <div class="section_name"><h3>Наші хіти</h3></div>
 
     <div class="wrapper-products owl-carousel">
-        <div class="product">
-            <a href="#" class="product_image">
-                <img src="img/product.jpg" alt="">
-            </a>
-            <div class="product_btns_name">
-                <div class="product-title">Сукня STARLING HAZE</div>
-                <div class="btn_price">
-                    <div class="row space v-bottom">
-                        <div class="product-price">
-                            <div class="old_prise">1230<span>&thinsp;грн</span></div>
-                            8150 <span>&thinsp;грн</span>
-                        </div>
-                        <a href="#" class="btn_buy btn"><i class="fa fa-shopping-bag" aria-hidden="true"></i>Купити</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
+        <?php
+            $i=0;
+        while ($i<6){
+                $i++;
+                product($i);
+        }
+        ?>
     </div>
 
 
 </section>
 
+
+<section class="section-news m-top">
+    <div class="wrap">
+        <div class="row row-wrap space top">
+            <a href="#" class="news blocks-1">
+                <div class="news-image">
+                        <img src="img/news1.jpg" alt="news">
+                </div>
+                <div class="news-text row v-center">
+                    НАЙГАРЯЧІШІ ПРОПОЗИЦІЇ ВІД NADI RENARDI
+                </div>
+            </a>
+            <a href="#" class="news blocks-2">
+                <div class="news-image">
+                    <img src="img/news2.jpg" alt="news">
+                </div>
+                <div class="news-text row v-center">
+                    СТИЛИСТ НАДЕЖДА ПАВЛЕНКО: ОБУВЬ
+                    В ТОН И ДРУГИЕ ТАБУ
+                </div>
+            </a>
+            <a href="#" class="news blocks-2">
+                <div class="news-image">
+                    <img src="img/news5.jpg" alt="news">
+                </div>
+                <div class="news-text row v-center">
+                    КАК УДЕРЖАТЬСЯ ОТ ПОКУПКИ БАРХАТНОГО
+                    МАНТО? СОВЕТЫ ОТ НАДЕЖДЫ ЛИВИНСКОЙ
+                </div>
+            </a>
+            <a href="#" class="news blocks-3">
+                <div class="news-image">
+                    <img src="img/news6.jpg" alt="news">
+                </div>
+                <div class="news-text row v-center">
+                    МОДНОЙ ХОЗЯЙКЕ НА ЗАМЕТКУ!
+                </div>
+            </a>
+            <a href="#" class="news blocks-3">
+                <div class="news-image">
+                    <img src="img/news3.jpg" alt="news">
+                </div>
+                <div class="news-text row v-center">
+                    ПОГОВОРИМ О ... СТИРКЕ!
+                </div>
+            </a>
+            <a href="#" class="news blocks-3">
+                <div class="news-image">
+                    <img src="img/news4.jpg" alt="news">
+                </div>
+                <div class="news-text row v-center">
+                    ПРОДОЛЖАЕМ ЗНАКОМСТВО С
+                    «ДЕ ЛА МАРК»
+                </div>
+            </a>
+
+        </div>
+    </div>
+</section>
 
     <br>
     <br>

@@ -3,7 +3,11 @@
     position: relative
     i
       font-size: 55px
-
+  form
+    label
+      &.error
+        top: -30px
+        bottom: inherit
   .mob-menu
     font-size: 55px
   #logo
@@ -27,7 +31,8 @@
 
   .m-column
     flex-direction: row
-
+  .tablet
+    display: block
   .btn_price
     padding: 0 20px
     bottom: 20px
@@ -76,3 +81,32 @@
   .news-text
     padding: 0 30px
     height: 80px
+
+
+  %text-subscription
+    font-size: 22px
+
+  .text-subscription
+      margin:
+        bottom: 0
+
+  .footer-logo
+    margin: 0
+    
+  .s-m-3
+    margin: 0
+    text-align: left
+
+
+  %font-s-m-title
+    font-size: 16px
+  .site-map
+    width: 210px
+  .s-m-links
+    & a,
+    & p
+      display: block
+      margin: 10px 0
+      font-size: 16px
+
+

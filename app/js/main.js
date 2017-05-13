@@ -1,6 +1,7 @@
 'use strict';
 
 $(document).ready(function () {
+
     var wrapper_wish = $('.wish');
     var wrapper_cart = $('.main-cart');
     var count_car = wrapper_cart.find('.count');
@@ -96,13 +97,52 @@ $(document).ready(function () {
     }
 
     WidthImage();
+
+    $('.disable').bind('click', function () {
+        $(this).hide();
+    });
+
+    $('#form-subscription').validate({
+        rules: {
+            email: {
+                required: true,
+                email: true
+            }
+        },
+        messages: {
+            email: "Введіть правильну електронну адресу"
+        }
+    });
+
+    $(function () {
+        $('.f-callback').magnificPopup({
+            items: {
+                src: '#callback-form'
+            },
+            type: 'inline'
+
+        });
+    });
+
+    $("#f-p-callback").validate();
+    $('#callback-tel').rules("add", {
+        required: true,
+        minlength: 19,
+        maxlength: 19,
+        messages: {
+            required: "Поле пустым быть не может",
+            minlength: jQuery.validator.format("Номер телефона введен не правильно")
+        }
+    });
+
+    $('#callback-tel').mask("+38 (000) 99-999-99", { placeholder: "+38 (_ _) _ _-_ _ _-_ _" });
 });
 'use strict';
 
 $(document).ready(function () {
     var $width_window = $(window).width();
     if ($width_window >= 1200) {
-        console.log('desctop');
+        console.log('desktop');
 
         $('.btn_search').mouseover(function () {
             $('.search').find('form').addClass('active');

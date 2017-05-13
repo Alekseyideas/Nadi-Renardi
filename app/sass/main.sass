@@ -7,6 +7,7 @@ $orange: #d26e2c
   font-size: 70px
   margin: 0 -20px
 
+
 body
   padding: 0
   margin: 0
@@ -18,6 +19,8 @@ button
   background: none
   border: 0
   outline: 0
+  cursor: pointer
+  transition: .5s
 h1,h2,h3,h4,h5,h6,p
   margin: 0
 
@@ -41,12 +44,30 @@ input
   outline: 0
   display: block
 
+form
+  input
+    border: 1px solid white
+    &.error
+      border: 1px solid red
+    &.valid
+
+  label
+    &.error
+      position: absolute
+      color: red
+      width: 100%
+      display: block
+      white-space: nowrap
+      bottom: -30px
+
 .wrap
   display: block
   width: 100%
   padding: 0 20px
   margin: auto
 .desktop
+  display: none
+.tablet
   display: none
 .mobile
   display: block
@@ -174,7 +195,7 @@ header
 
 .message-empty:after
   content: "\f0d8"
-  font-family: FontAwesome
+  font-family: FontAwesome, serif
   position: absolute
   right: 17px
   font-size: 25px
@@ -237,7 +258,7 @@ header
 
 .btn_search::after
   content: '\f002'
-  font-family: FontAwesome
+  font-family: FontAwesome, serif
   color: #000
   font-size: 18px
   display: block
@@ -392,6 +413,9 @@ header
   line-height: 54px
   text-transform: uppercase
   font-size: 20px
+  background: white
+  cursor: pointer
+  transition: .5s
 
 .btn_buy
   i
@@ -427,7 +451,7 @@ header
   background: url("../img/label.png") no-repeat center / cover
 
 .section-news
-  padding: 70px 0
+  padding: 70px 0 20px
   background: lighten(black,95)
 
 .news
@@ -456,6 +480,165 @@ header
   text-transform: uppercase
   padding: 0 30px
   height: 80px
+
+.section-subscription
+  padding: 50px 0
+  background: lighten(black,25)
+  color: white
+
+%text-subscription
+  color: white
+  font-size: 20px
+  font-weight: normal
+  text-transform: uppercase
+
+.text-subscription
+  max-width: 640px
+  width: 100%
+  margin:
+    bottom: 20px
+  @extend %text-subscription
+  h1,h2,h3,h4,h5,h6
+    @extend %text-subscription
+
+
+.wrapper-form-subscription
+  width: 100%
+.in-subscription
+  width: 100%
+  height: 45px
+  border-radius: 5px
+  padding: 0 10px
+  font-size: 18px
+.btn-subscription
+  display: block
+  background: $orange
+  color: white
+  height: 45px
+  width: 145px
+  border-radius: 5px
+  margin-left: -10px
+  z-index: 1
+.form-group
+  width: 100%
+  position: relative
+  box-sizing: border-box
+.section_description_name
+  text-align: center
+  margin: 20px 0
+  font-size: 18px
+
+
+.map
+  position: relative
+.disable
+  position: absolute
+  width: 100%
+  height: 100%
+  left: 0
+  top: 0
+.s-m-links
+  & a,
+  & p
+    display: block
+    margin: 10px 0
+    font-size: 18px
+
+
+%width_foot_col
+  width: 210px
+.footer-logo
+  display: block
+  background: url("../img/footer-logo.svg") no-repeat center/cover
+  @extend %width_foot_col
+  margin: auto
+  height: 222px
+.copyright
+  background: black
+  color: white
+  text-align: center
+  padding: 15px 0
+  font-size: 12px
+
+.site-map
+  @extend %width_foot_col
+
+%font-s-m-title
+  font-size: 26px
+.s-m-title
+  @extend %font-s-m-title
+  border-bottom: 1px solid $orange
+  padding:
+    bottom: 5px
+  margin:
+    bottom: 10px
+
+  h1,h2,h3,h4,h5,h6
+    @extend %font-s-m-title
+
+.s-m-3
+  margin: 40px auto 0
+  text-align: center
+
+%fixed-links
+  color: white
+  display: block
+  font-size: 16px
+  cursor: pointer
+  height:  40px
+  font-weight: normal
+
+.fixed-callback_soc_links
+  background: lighten(black,20)
+  position: fixed
+  left: -130px
+  top: 50%
+  z-index: 2
+  color: white
+  transform: rotate(-90deg)
+  text-align: center
+
+  .soc_link
+    @extend %fixed-links
+    width: 40px
+    border-bottom: 1px solid white
+    line-height: 40px
+    transform: rotate(90deg)
+.f-callback
+  @extend %fixed-links
+  white-space: nowrap
+  line-height: 40px
+  padding: 0 20px
+  transition: .5s
+
+.p-pad
+  padding: 10px 20px
+.popup-block
+  position: relative
+  background: white
+  width: auto
+  max-width: 500px
+  margin: 20px auto
+  border-radius: 5px
+  .popup-name
+    font-size: 20px
+    font-weight: 300
+    border-bottom: 2px solid $orange
+    text-transform: uppercase
+
+
+.in-main
+  border: 1px solid lighten(black,70)
+  width: 100%
+  margin: 10px 0 20px
+  height: 29px
+  padding: 0 10px
+
+#f-p-callback
+  label
+    &.error
+      top: inherit
+      bottom: -20px
 @import "600"
 @import "768"
 @import "1200"

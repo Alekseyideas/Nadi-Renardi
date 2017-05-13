@@ -86,7 +86,8 @@
     height: 34px
     border-radius: 5px
     line-height: 34px
-
+    &:hover
+      color: $orange
   .wrapper-products
     width: 95%
     margin: 30px auto 0
@@ -133,3 +134,22 @@
 
   .news:hover
     box-shadow: 0 0 25px rgba(black,.5)
+
+  .text-subscription
+    width: 55%
+  .wrapper-form-subscription
+    width: 30%
+
+  .btn-subscription
+    &:hover
+      background: darken($orange,10)
+  %text-subscription
+    font-size: 40px
+
+  %fixed-links
+    &:hover
+      background: $orange
+      color: white
+
+  %width_foot_col
+    width: 210px

@@ -16,6 +16,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
     <link rel="stylesheet" href="css/libs.min.css?<?php echo rand(0,100)?>">
+
     <link rel="stylesheet" href="css/main.min.css?<?php echo rand(0,100)?>">
 </head>
 <!--templates-->

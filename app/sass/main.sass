@@ -71,6 +71,9 @@ form
   display: none
 .mobile
   display: block
+
+.mobile-tablet
+  display: block
 .row
   display: flex
 
@@ -368,7 +371,7 @@ header
   .owl-dots
     width: 100%
     padding: 0 20px
-    bottom: 285px
+    bottom: 340px
   .owl-stage-outer
     padding: 20px 0
   .owl-prev
@@ -390,6 +393,8 @@ header
     width: 100%
     display: block
     position: relative
+    img
+      width: 100%
 
 .product_btns_name
   padding: 20px
@@ -639,6 +644,184 @@ header
     &.error
       top: inherit
       bottom: -20px
+
+.crumbs
+  margin:
+    top: 30px
+  ul
+    li
+      margin:
+        right: 10px
+      &:after
+        content: '/'
+        margin-left: 10px
+      &:last-child
+        a
+          cursor: default
+          &:hover
+            color: black
+        &:after
+          content: ''
+
+.section-filter
+  background: lighten(black,80)
+  margin-top: 30px
+
+.base-name
+  display: block
+  padding: 10px
+  text-transform: uppercase
+
+.size
+  text-transform: uppercase
+
+.t-size
+  display: block
+  margin-right: 10px
+.i-size
+  display: block
+  width: 30px
+  height: 30px
+  background: lighten(black,40)
+  border-radius: 3px
+  color: white
+  text-align: center
+  line-height: 30px
+
+.sizes
+  border-bottom: 1px solid lighten(black,60)
+  padding: 10px 20px
+.b-size
+  margin: 0 10px
+  display: block
+  width: 30px
+  min-width: 30px
+  height: 30px
+  min-height: 30px
+  line-height: 30px
+  text-align: center
+  border: 1px solid $orange
+  text-transform: uppercase
+
+.main-products
+  .product
+    margin: 0 10px 30px
+
+.st-page
+  height: 30px
+  line-height: 30px
+  padding: 0 10px
+  border: 1px solid lighten(black,80)
+  display: block
+  box-sizing: border-box
+  border-right: 0
+  &:last-child
+    border: 1px solid lighten(black,80)
+.pagination
+  .active
+    background: $orange
+    border: 1px solid $orange
+    color: white
+
+.load-more
+  margin: 40px auto 80px
+  text-align: center
+.btn-load
+  display: block
+  color: $orange
+  font-size: 60px
+
+.pr-images
+  width: 100%
+.pr-image
+  img
+    width: 100%
+    height: auto
+.pr-image-1
+  width: 49%
+.pr-image-2
+  width: 49%
+
+
+.mfp-bottom-bar
+  display: none !important
+
+.section-full_product
+  .owl-dots
+    position: relative
+    margin: 30px auto 0
+  .owl-prev
+    @extend %navs
+    left: 0
+    font-size: 40px
+    margin-top: -10px
+  .owl-next
+    @extend %navs
+    right: 0
+    font-size: 40px
+    margin-top: -10px
+
+.pr-info
+  width: 100%
+  margin-top: 30px
+
+
+%product-tile
+  font-size: 32px
+  font-weight: normal
+
+
+.pr-name
+  @extend %product-tile
+  border-bottom: 1px solid lighten(black, 80)
+  padding-bottom: 10px
+  h1,h2,h3,h4,h5,h6
+    @extend %product-tile
+.pr-prise-btns
+  margin-top: 30px
+  padding: 20px
+  background: lighten(black,98)
+  .v-center
+    align-items: inherit
+.pr-btns
+  .btn
+    display: block
+    margin-bottom: 10px
+    .fa
+      margin-right: 5px
+    &:last-child
+      margin-bottom: 0
+.size-btns
+  input[type="radio"]
+   display: none
+.in-group
+  display: inline-block
+  margin:
+    top: 20px
+    right: 10px
+
+  label
+    display: block
+    width: 35px
+    height: 35px
+    cursor: pointer
+    text-align: center
+    line-height: 35px
+    border: 1px solid lighten(black,70)
+    border-radius: 3px
+    text-transform: uppercase
+  .active
+    background: $orange
+    color: white
+    border: 1px solid $orange
+
+.pr-name-cat
+  font-size: 22px
+  margin-top: 50px
+  border-bottom: 1px solid lighten(black,80)
+  padding:
+    bottom: 10px
+
 @import "600"
 @import "768"
 @import "1200"

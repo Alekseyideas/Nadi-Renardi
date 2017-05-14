@@ -8,6 +8,9 @@
     display: block
   .mobile
     display: none
+  .mobile-tablet
+    display: none
+
   .language:hover
     .rus
       display: block
@@ -61,7 +64,7 @@
   .product
     width: 290px
     margin: auto
-    height: 600px
+    height: 630px
     border: 1px solid lighten(black,80)
 
   .product:hover
@@ -153,3 +156,33 @@
 
   %width_foot_col
     width: 210px
+
+  .main-products
+    .product
+      margin: 0 10px 30px
+      width: 322px
+      height: 690px
+      .product_image
+        height: 480px
+
+    .product-price
+      font-size: 20px
+      line-height: 22px
+  .itm-img
+    width: 160px
+    height: 160px
+  .st-page
+    &:hover
+      background: lighten(black,95)
+
+  .pagination
+    .active
+      &:hover
+        background: $orange
+
+  .all-pages
+    &:hover
+      background: white
+
+  %product-tile
+    font-size: 25px

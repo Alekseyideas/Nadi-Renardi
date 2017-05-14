@@ -124,8 +124,10 @@ $(document).ready(function () {
         });
     });
 
+    var callBackIn = $('#callback-tel');
+
     $("#f-p-callback").validate();
-    $('#callback-tel').rules("add", {
+    callBackIn.rules("add", {
         required: true,
         minlength: 19,
         maxlength: 19,
@@ -135,7 +137,86 @@ $(document).ready(function () {
         }
     });
 
-    $('#callback-tel').mask("+38 (000) 99-999-99", { placeholder: "+38 (_ _) _ _-_ _ _-_ _" });
+    callBackIn.mask("+38 (000) 99-999-99", { placeholder: "+38 (_ _) _ _-_ _ _-_ _" });
+
+    $('.crumbs').find('li:last-child').bind('click', function (e) {
+        e.preventDefault();
+    });
+
+    $('.btn-size').bind('click', function (e) {
+        e.preventDefault();
+        if ($(this).hasClass('down') === true) {
+            $(this).removeClass('down').addClass('up').find('.fa').removeClass('fa-long-arrow-down').addClass('fa-long-arrow-up');
+        } else {
+            $(this).removeClass('up').addClass('down').find('.fa').removeClass('fa-long-arrow-up').addClass('fa-long-arrow-down');
+        }
+    });
+
+    var product_gallary = $('.car-pr-img');
+
+    product_gallary.owlCarousel({
+        loop: true,
+        navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>', '<i class="fa fa-angle-right" aria-hidden="true"></i>'],
+        responsive: {
+            0: {
+                items: 1,
+                dots: true,
+                nav: false
+            },
+            600: {
+                items: 3,
+                dots: false,
+                nav: false
+            },
+            1000: {
+                items: 4,
+                dots: false,
+                nav: true
+            }
+        }
+    });
+
+    product_gallary.magnificPopup({
+        delegate: 'a',
+        type: 'image',
+        tLoading: 'Загрузка изображения #%curr%...',
+        mainClass: 'mfp-img-mobile',
+        gallery: {
+            enabled: true,
+            counter: false,
+            navigateByImgClick: false
+        },
+        image: {
+            tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
+
+        },
+        zoom: {
+            enabled: true,
+            duration: 300, // don't foget to change the duration also in CSS
+            opener: function opener(element) {
+                return element.find('img');
+            }
+        }
+    });
+
+    function check_size(name_input) {
+        $('.in-group').find('label').click(function () {
+            $('.in-group').find('label').removeClass('active');
+            $(this).addClass('active');
+            var size_value = $(this).parent('.in-group').find('input').val();
+            console.log(size_value);
+        });
+    }
+    check_size($('#btn-xs'));
+    check_size($('#btn-s'));
+    check_size($('#btn-l'));
+    check_size($('#btn-m'));
+
+    $('#btn-buy').bind('click', function () {
+        if ($('.in-group').find('input').is(':checked') === false) {
+            alert(1);
+        } else {}
+    });
 });
 'use strict';
 

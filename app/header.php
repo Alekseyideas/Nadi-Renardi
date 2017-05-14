@@ -77,10 +77,10 @@
             <div class="site-menu">
                 <ul class="row ">
                     <li><a href="#" >Новинки</a></li>
-                    <li><a href="#">Сукні</a></li>
-                    <li><a href="#">Спідниці та штани</a></li>
-                    <li><a href="#">Пальто</a></li>
-                    <li><a href="#">Аксесуари</a></li>
+                    <li><a href="catalog.php">Сукні</a></li>
+                    <li><a href="catalog.php">Спідниці та штани</a></li>
+                    <li><a href="catalog.php">Пальто</a></li>
+                    <li><a href="catalog.php">Аксесуари</a></li>
                     <li><a href="#">Знижки</a></li>
                 </ul>
             </div>

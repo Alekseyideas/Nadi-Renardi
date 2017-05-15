@@ -127,17 +127,22 @@ $(document).ready(function () {
     var callBackIn = $('#callback-tel');
 
     $("#f-p-callback").validate();
-    callBackIn.rules("add", {
-        required: true,
-        minlength: 19,
-        maxlength: 19,
-        messages: {
-            required: "Поле пустым быть не может",
-            minlength: jQuery.validator.format("Номер телефона введен не правильно")
-        }
-    });
 
-    callBackIn.mask("+38 (000) 99-999-99", { placeholder: "+38 (_ _) _ _-_ _ _-_ _" });
+    function phoneNumber(input) {
+        input.rules("add", {
+            required: true,
+            minlength: 19,
+            maxlength: 19,
+            messages: {
+                required: "Поле порожнім бути не може",
+                minlength: jQuery.validator.format("Номер телефону введений неправильно")
+            }
+        });
+    }
+
+    phoneNumber(callBackIn);
+
+    callBackIn.mask("+38 (000) 99-999-99", { placeholder: "+380" });
 
     $('.crumbs').find('li:last-child').bind('click', function (e) {
         e.preventDefault();
@@ -212,10 +217,124 @@ $(document).ready(function () {
     check_size($('#btn-l'));
     check_size($('#btn-m'));
 
-    $('#btn-buy').bind('click', function () {
+    function openPopup(popup_id) {
+        $.magnificPopup.open({
+            mainClass: 'mfp-with-zoom',
+            items: {
+                removalDelay: 300,
+                src: popup_id
+            }
+        });
+    }
+
+    $('#btn-buy').bind('click', function (e) {
         if ($('.in-group').find('input').is(':checked') === false) {
-            alert(1);
+            e.preventDefault();
+            openPopup('#alert-size');
+        } else {
+            openPopup('#alert-add_cart');
+        }
+    });
+
+    var btn_zise_al = $('.btn-zize-alert');
+
+    btn_zise_al.bind('click', function () {
+        $.magnificPopup.close();
+        var size_id = $(this).data('btn');
+        btn_zise_al.removeClass('active');
+        $(this).addClass('active');
+        $('#' + size_id).parent('.in-group').find('label').click();
+    });
+
+    $('.close-popup').bind('click', function () {
+        $.magnificPopup.close();
+    });
+
+    $('#btn-one_click').bind('click', function () {
+        openPopup('#alert-one_click');
+    });
+
+    $('#form-one_click').validate();
+
+    var OneClickTel = $('#tel-one_click');
+
+    phoneNumber(OneClickTel);
+    OneClickTel.mask("+38 (000) 99-999-99", { placeholder: "+380" });
+
+    $('#btn-add_favorite').bind('click', function () {
+        if ($('body').hasClass('unregistered') === true) {
+            openPopup('#alert-enter');
         } else {}
+    });
+    $('#comment-form').validate({
+        rules: {
+            email: {
+                required: true,
+                email: true
+            },
+            Name: {
+                required: true,
+                minlength: 2
+            },
+            message: {
+                required: true,
+                minlength: 5
+            }
+        },
+        messages: {
+
+            email: "Введіть правильну електронну адресу",
+            Name: {
+                minlength: jQuery.validator.format("Имя должно быть не меньше {0} букв ")
+            },
+            message: {
+                minlength: jQuery.validator.format("Сообщение должно содержать не меньше {0} букв ")
+            }
+
+        }
+    });
+
+    jQuery.extend(jQuery.validator.messages, {
+        required: "Поле порожнім бути не може"
+    });
+
+    var toggle = $('.toggle');
+    toggle.bind('click', function () {
+        toggle.removeClass('active').find('.fa').removeClass('fa-angle-up').addClass('fa-angle-down');
+        $('.in-toggle').slideUp();
+        $(this).addClass('active').find('.in-toggle').slideDown();
+        $(this).find('.fa').removeClass('fa-angle-down').addClass('fa-angle-up');
+    });
+
+    function check_delivery() {
+        var btn = $('.wr-label');
+        btn.click(function () {
+            btn.removeClass('active');
+            $(this).addClass('active');
+            $('.del-toggle').find('.toggle-content').slideUp();
+            $(this).parents('.del-toggle').find('.toggle-content').slideDown();
+
+            var input_value = $(this).parents('.del-toggle').find('input').val();
+            console.log(input_value);
+        });
+    }
+
+    check_delivery();
+
+    function check_payment() {
+        var btn = $('.wr-label2');
+        btn.click(function () {
+            btn.removeClass('active');
+            $(this).addClass('active');
+            var input_value = $(this).parents('.tog-payment').find('input').val();
+            console.log(input_value);
+        });
+    }
+
+    check_payment();
+
+    $('.enter').bind('click', function () {
+        openPopup('#alert-enter');
     });
 });
 'use strict';

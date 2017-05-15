@@ -61,7 +61,7 @@
 <section class="section-news m-top">
     <div class="wrap">
         <div class="row row-wrap space top">
-            <a href="#" class="news blocks-1">
+            <a href="full-news.php" class="news blocks-1">
                 <div class="news-image">
                         <img src="img/news1.jpg" alt="news">
                 </div>
@@ -69,7 +69,7 @@
                     НАЙГАРЯЧІШІ ПРОПОЗИЦІЇ ВІД NADI RENARDI
                 </div>
             </a>
-            <a href="#" class="news blocks-2">
+            <a href="full-news.php" class="news blocks-2">
                 <div class="news-image">
                     <img src="img/news2.jpg" alt="news">
                 </div>
@@ -78,7 +78,7 @@
                     В ТОН И ДРУГИЕ ТАБУ
                 </div>
             </a>
-            <a href="#" class="news blocks-2">
+            <a href="full-news.php" class="news blocks-2">
                 <div class="news-image">
                     <img src="img/news5.jpg" alt="news">
                 </div>
@@ -87,7 +87,7 @@
                     МАНТО? СОВЕТЫ ОТ НАДЕЖДЫ ЛИВИНСКОЙ
                 </div>
             </a>
-            <a href="#" class="news blocks-3">
+            <a href="full-news.php" class="news blocks-3">
                 <div class="news-image">
                     <img src="img/news6.jpg" alt="news">
                 </div>
@@ -95,7 +95,7 @@
                     МОДНОЙ ХОЗЯЙКЕ НА ЗАМЕТКУ!
                 </div>
             </a>
-            <a href="#" class="news blocks-3">
+            <a href="full-news.php" class="news blocks-3">
                 <div class="news-image">
                     <img src="img/news3.jpg" alt="news">
                 </div>
@@ -103,7 +103,7 @@
                     ПОГОВОРИМ О ... СТИРКЕ!
                 </div>
             </a>
-            <a href="#" class="news blocks-3">
+            <a href="full-news.php" class="news blocks-3">
                 <div class="news-image">
                     <img src="img/news4.jpg" alt="news">
                 </div>

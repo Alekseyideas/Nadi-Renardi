@@ -2,9 +2,9 @@
 <section class="section-crambs">
     <div class="wrap">
         <div class="crumbs">
-            <ul class="row v-center row-wrap">
-                <li><a href="/">Головна</a></li>
-                <li><a href="catalog.php">Оформлення замовлення</a></li>
+            <ul class="row v-center row-wrap" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li><a href="/" itemprop="url"><span itemprop="name">Головна</span></a></li>
+                <li><a href="catalog.php" itemprop="url"><span itemprop="name">Оформлення</span> замовлення</a></li>
             </ul>
         </div>
     </div>
@@ -261,8 +261,6 @@
             <input type="submit" class="btn cover-bnt" id="confirm" value="Підтверджую замовлення">
 
         </form>
-
-
     </div>
 </section>
 <?php include 'footer.php'?>

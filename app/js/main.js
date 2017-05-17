@@ -2,6 +2,18 @@
 
 $(document).ready(function () {
 
+    function heightDetect() {
+        var h_block = $('.cont-room');
+        h_block.css('min-height', $(window).height() - 500);
+        if ($(window).width() > 768) {
+            h_block.css('min-height', $(window).height() - 500);
+        }
+    }
+
+    heightDetect();
+    $(window).resize(function () {
+        heightDetect();
+    });
     var wrapper_wish = $('.wish');
     var wrapper_cart = $('.main-cart');
     var count_car = wrapper_cart.find('.count');
@@ -40,6 +52,7 @@ $(document).ready(function () {
         dots: true
 
     });
+    //noinspection JSUnresolvedFunction
     $(".wrapper-products").owlCarousel({
         loop: true,
         autoWidth: false,
@@ -115,6 +128,7 @@ $(document).ready(function () {
     });
 
     $(function () {
+        //noinspection JSUnresolvedFunction
         $('.f-callback').magnificPopup({
             items: {
                 src: '#callback-form'
@@ -129,6 +143,7 @@ $(document).ready(function () {
     $("#f-p-callback").validate();
 
     function phoneNumber(input) {
+        //noinspection JSUnresolvedVariable
         input.rules("add", {
             required: true,
             minlength: 19,
@@ -142,7 +157,11 @@ $(document).ready(function () {
 
     phoneNumber(callBackIn);
 
-    callBackIn.mask("+38 (000) 99-999-99", { placeholder: "+380" });
+    function phoneMask(input_Id) {
+        input_Id.mask("+38 (000) 99-999-99", { placeholder: "+380" });
+    }
+
+    phoneMask(callBackIn);
 
     $('.crumbs').find('li:last-child').bind('click', function (e) {
         e.preventDefault();
@@ -204,7 +223,7 @@ $(document).ready(function () {
         }
     });
 
-    function check_size(name_input) {
+    function check_size() {
         $('.in-group').find('label').click(function () {
             $('.in-group').find('label').removeClass('active');
             $(this).addClass('active');
@@ -212,12 +231,10 @@ $(document).ready(function () {
             console.log(size_value);
         });
     }
-    check_size($('#btn-xs'));
-    check_size($('#btn-s'));
-    check_size($('#btn-l'));
-    check_size($('#btn-m'));
+    check_size();
 
     function openPopup(popup_id) {
+        /** @namespace $.magnificPopup */
         $.magnificPopup.open({
             mainClass: 'mfp-with-zoom',
             items: {
@@ -259,13 +276,15 @@ $(document).ready(function () {
     var OneClickTel = $('#tel-one_click');
 
     phoneNumber(OneClickTel);
-    OneClickTel.mask("+38 (000) 99-999-99", { placeholder: "+380" });
+
+    phoneMask(OneClickTel);
 
     $('#btn-add_favorite').bind('click', function () {
         if ($('body').hasClass('unregistered') === true) {
             openPopup('#alert-enter');
         } else {}
     });
+    /** @namespace jQuery.validator */
     $('#comment-form').validate({
         rules: {
             email: {
@@ -335,6 +354,102 @@ $(document).ready(function () {
 
     $('.enter').bind('click', function () {
         openPopup('#alert-enter');
+    });
+
+    function RoomTab() {
+        var wraper = $('.nav-room');
+        var btn = wraper.find('li');
+        var active = wraper.find('.active');
+        var openTab = active.data('tab');
+        $('#' + openTab).show();
+        btn.bind('click', function () {
+            var tab = $(this).data('tab');
+
+            btn.removeClass('active');
+            $(this).addClass('active');
+            console.log(tab);
+            $('.tab-cont').hide();
+            $('#' + tab).show();
+        });
+    }
+    RoomTab();
+
+    var person_phone = $('#per-tel');
+
+    phoneMask(person_phone);
+
+    $('#form-person-room').validate();
+
+    phoneNumber(person_phone);
+
+    //noinspection JSUnresolvedFunction
+    $('.pl-choose').find('select').chosen({
+        width: "90%",
+        no_results_text: "Результатiв 0"
+    });
+    //noinspection JSUnresolvedFunction
+    $('.choose-month').find('select').chosen({
+        width: "100%",
+        no_results_text: "Результатiв 0 "
+    });
+
+    $('.link-pr').bind('click', function () {
+
+        var order = $(this).data('order');
+        var name = $(this).data('name');
+        var img = $(this).data('img');
+        var size = $(this).data('size');
+        var price = $(this).data('price');
+        var status = $(this).data('status');
+
+        var wr_status = $('#pr-status');
+        wr_status.removeClass();
+        $('#order-number').html(order);
+        $('#pr-img').html('<img src="' + img + '" title="image">');
+        $('#pr-name').html(name);
+        $('#pr-size').html(size);
+        $('#pr-price').html(price);
+        wr_status.html(status);
+        if (status === 'Виконане') {
+            wr_status.addClass('ready');
+        } else if (status === 'Скасоване') {
+            wr_status.addClass('сanceled');
+        } else if (status === 'В обробці') {
+            wr_status.addClass('in_processing');
+        }
+
+        openPopup('#alert-history_order');
+    });
+
+    $('.cart').bind('click', function () {
+        if (wrapper_cart.hasClass('empty-card') === false) {
+            openPopup('#open-cart');
+        }
+    });
+    $('#one_cl').bind('click', function () {
+        $.magnificPopup.close();
+        setTimeout(function () {
+            openPopup('#alert-one_click');
+        }, 500);
+    });
+
+    $('#clear').bind('click', function () {
+        $('.product-row').slideUp();
+        $('.full-cost').hide();
+        count_car.hide();
+        wrapper_cart.addClass('empty-card');
+        setTimeout(function () {
+            $.magnificPopup.close();
+        }, 500);
+    });
+
+    $('.btn-remove').bind('click', function () {
+        $(this).parents('.product-row').slideUp().addClass('close');
+        if ($('.product-in-cart').height() < 400) {
+            $.magnificPopup.close();
+            count_car.hide();
+            wrapper_cart.addClass('empty-card');
+        }
     });
 });
 'use strict';

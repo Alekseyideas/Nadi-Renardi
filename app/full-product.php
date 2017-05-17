@@ -2,10 +2,10 @@
 <section class="section-crambs">
     <div class="wrap">
         <div class="crumbs">
-            <ul class="row v-center row-wrap">
-                <li><a href="/">Головна</a></li>
-                <li><a href="catalog.php">Сукнi</a></li>
-                <li><a href="catalog.php">Cукня CAREER OPPORTUNITIES</a></li>
+             <ul class="row v-center row-wrap" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li><a href="/" itemprop="url"><span itemprop="name">Головна</span></a></li>
+                <li><a href="catalog.php" itemprop="url"><span itemprop="name">Сукнi</span></a></li>
+                <li><a href="/" itemprop="url"><span itemprop="name">Cукня CAREER OPPORTUNITIES</span></a></li>
             </ul>
         </div>
     </div>
@@ -35,19 +35,19 @@
                     <a href="img/product2.jpg" class="itm-img"><img src="img/product2.jpg" alt="6"></a>
                 </div>
             </div>
-            <div class="pr-info">
+            <div class="pr-info" itemscope itemtype="http://schema.org/Product">
                 <form action="">
 
 
                 <div class="pr-name">
-                    <h4>Cукня CAREER OPPORTUNITIES</h4>
+                    <h4 itemprop="name">Cукня CAREER OPPORTUNITIES</h4>
                 </div>
                 <div class="pr-prise-btns">
                     <div class="row t-column space v-center">
 
-                        <div class="product-price">
-                            <div class="old_prise">1230<span>&thinsp;грн</span></div>
-                            850 <span>&thinsp;грн</span>
+                        <div class="product-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                            <div class="old_prise">1230<span >&thinsp;грн</span></div>
+                            <b itemprop="price" content="850">850</b> <span itemprop="priceCurrency" content="UAH">&thinsp;грн</span>
                         </div>
 
 

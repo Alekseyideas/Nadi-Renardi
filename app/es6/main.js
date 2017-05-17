@@ -1,5 +1,18 @@
+
 $(document).ready(function () {
 
+    function heightDetect(){
+        let h_block = $('.cont-room');
+        h_block.css ('min-height', $(window).height()-500);
+        if ($(window).width()>768){
+            h_block.css ('min-height', $(window).height()-500);
+        }
+    }
+
+    heightDetect();
+    $(window).resize(function(){
+        heightDetect();
+    });
     const wrapper_wish = $('.wish');
     const wrapper_cart = $('.main-cart');
     const count_car = wrapper_cart.find('.count');
@@ -40,6 +53,7 @@ $(document).ready(function () {
 
         }
     );
+    //noinspection JSUnresolvedFunction
     $(".wrapper-products").owlCarousel(
         {
             loop: true,
@@ -122,6 +136,7 @@ $(document).ready(function () {
 
 
     $(function () {
+        //noinspection JSUnresolvedFunction
         $('.f-callback').magnificPopup({
             items: {
                 src: '#callback-form',
@@ -139,6 +154,7 @@ $(document).ready(function () {
 
 
         function phoneNumber(input) {
+            //noinspection JSUnresolvedVariable
             input.rules("add",{
                 required: true,
                 minlength: 19,
@@ -152,8 +168,11 @@ $(document).ready(function () {
 
     phoneNumber(callBackIn);
 
+        function phoneMask(input_Id) {
+            input_Id.mask("+38 (000) 99-999-99", {placeholder: "+380"});
+        }
 
-    callBackIn.mask("+38 (000) 99-999-99", {placeholder: "+380"});
+    phoneMask(callBackIn);
 
 
     $('.crumbs').find('li:last-child').bind('click',function (e) {
@@ -220,7 +239,7 @@ $(document).ready(function () {
 
 
 
-  function check_size(name_input) {
+  function check_size() {
       $('.in-group').find('label').click(function () {
           $('.in-group').find('label').removeClass('active');
           $(this).addClass('active');
@@ -228,13 +247,12 @@ $(document).ready(function () {
           console.log(size_value);
       })
   }
-  check_size($('#btn-xs'));
-  check_size($('#btn-s'));
-  check_size($('#btn-l'));
-  check_size($('#btn-m'));
+  check_size();
+
 
 
   function openPopup(popup_id) {
+      /** @namespace $.magnificPopup */
       $.magnificPopup.open({
           mainClass: 'mfp-with-zoom',
           items:{
@@ -277,7 +295,8 @@ let btn_zise_al = $('.btn-zize-alert');
     const OneClickTel = $('#tel-one_click');
 
     phoneNumber(OneClickTel);
-    OneClickTel.mask("+38 (000) 99-999-99", {placeholder: "+380"});
+
+    phoneMask(OneClickTel);
 
     $('#btn-add_favorite').bind('click',function () {
         if ($('body').hasClass('unregistered')===true){
@@ -287,6 +306,7 @@ let btn_zise_al = $('.btn-zize-alert');
 
         }
     });
+    /** @namespace jQuery.validator */
     $('#comment-form').validate({
         rules:{
             email:{
@@ -361,4 +381,110 @@ let btn_zise_al = $('.btn-zize-alert');
     $('.enter').bind('click',function () {
         openPopup('#alert-enter');
     });
+
+    function RoomTab() {
+        let wraper = $('.nav-room');
+        let btn = wraper.find('li');
+        let active = wraper.find('.active');
+        let openTab = active.data('tab');
+        $(`#${openTab}`).show();
+        btn.bind('click',function () {
+            let tab = $(this).data('tab');
+
+            btn.removeClass('active');
+            $(this).addClass('active');
+            console.log(tab);
+            $('.tab-cont').hide();
+            $(`#${tab}`).show();
+        });
+    }
+    RoomTab();
+
+
+    let person_phone=$('#per-tel');
+
+    phoneMask(person_phone);
+
+    $('#form-person-room').validate();
+
+    phoneNumber(person_phone);
+
+    //noinspection JSUnresolvedFunction
+    $('.pl-choose').find('select').chosen({
+        width: "90%",
+        no_results_text: "Результатiв 0"
+    });
+    //noinspection JSUnresolvedFunction
+    $('.choose-month').find('select').chosen({
+        width: "100%",
+        no_results_text: "Результатiв 0 "
+    });
+
+
+    $('.link-pr').bind('click',function () {
+
+        let order = $(this).data('order');
+        let name = $(this).data('name');
+        let img = $(this).data('img');
+        let size = $(this).data('size');
+        let price = $(this).data('price');
+        let status = $(this).data('status');
+
+        let wr_status = $('#pr-status');
+        wr_status.removeClass();
+        $('#order-number').html(order);
+        $('#pr-img').html(`<img src="${img}" title="image">`);
+        $('#pr-name').html(name);
+        $('#pr-size').html(size);
+        $('#pr-price').html(price);
+        wr_status.html(status);
+        if(status === 'Виконане'){
+            wr_status.addClass('ready');
+        }else if(status === 'Скасоване'){
+            wr_status.addClass('сanceled');
+        }else if(status === 'В обробці'){
+            wr_status.addClass('in_processing');
+        }
+
+        openPopup('#alert-history_order');
+    });
+
+
+
+    $('.cart').bind('click',function () {
+        if(wrapper_cart.hasClass('empty-card') === false ){
+            openPopup('#open-cart');
+        }
+    });
+    $('#one_cl').bind('click',function () {
+        $.magnificPopup.close();
+        setTimeout(function () {
+            openPopup('#alert-one_click');
+        },500);
+    });
+
+
+    $('#clear').bind('click',function () {
+        $('.product-row').slideUp();
+        $('.full-cost').hide();
+        count_car.hide();
+        wrapper_cart.addClass('empty-card');
+        setTimeout(function () {
+            $.magnificPopup.close();
+        },500);
+    });
+
+    $('.btn-remove').bind('click',function () {
+       $(this).parents('.product-row').slideUp().addClass('close');
+        if ($('.product-in-cart').height() < 400){
+            $.magnificPopup.close();
+            count_car.hide();
+            wrapper_cart.addClass('empty-card');
+        }
+
+
+
+
+    });
+
 });

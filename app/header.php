@@ -16,8 +16,11 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
     <link rel="stylesheet" href="css/libs.min.css?<?php echo rand(0,100)?>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.7.0/chosen.min.css">
 
     <link rel="stylesheet" href="css/main.min.css?<?php echo rand(0,100)?>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 </head>
 <!--templates-->
 <?php include 't-product.php'?>
@@ -76,11 +79,11 @@
         <div class="row space v-center">
             <div class="site-menu">
                 <ul class="row ">
-                    <li><a href="#" >Новинки</a></li>
-                    <li><a href="catalog.php">Сукні</a></li>
-                    <li><a href="catalog.php">Спідниці та штани</a></li>
-                    <li><a href="catalog.php">Пальто</a></li>
-                    <li><a href="catalog.php">Аксесуари</a></li>
+                    <li><a href="catalog.php" itemprop="url"><span itemprop="title">Новинки</span></a></li>
+                    <li><a href="catalog.php" itemprop="url"><span itemprop="title">Сукн</span>і</a></li>
+                    <li><a href="catalog.php" itemprop="url"><span itemprop="title">Спідниці та штани</span></a></li>
+                    <li><a href="catalog.php" itemprop="url"><span itemprop="title">Пальто</span></a></li>
+                    <li><a href="catalog.php" itemprop="url"><span itemprop="title">Аксесуари</span></a></li>
                     <li><a href="#">Знижки</a></li>
                 </ul>
             </div>

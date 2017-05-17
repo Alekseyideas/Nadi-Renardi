@@ -2,9 +2,9 @@
     <section class="section-crambs">
         <div class="wrap">
             <div class="crumbs">
-                <ul class="row v-center row-wrap">
-                    <li><a href="/">Головна</a></li>
-                    <li><a href="catalog.php">Новини</a></li>
+                <ul class="row v-center row-wrap" itemscope itemtype="https://schema.org/BreadcrumbList">
+                    <li><a href="/" itemprop="url"><span itemprop="name">Головна</span></a></li>
+                    <li><a href="/" itemprop="url"><span itemprop="name">Новини</span></a></li>
                 </ul>
             </div>
         </div>

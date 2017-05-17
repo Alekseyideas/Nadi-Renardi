@@ -1,10 +1,11 @@
 <?php include 'header.php'?>
+
 <section class="section-crambs">
     <div class="wrap">
         <div class="crumbs">
-            <ul class="row">
-                <li><a href="/">Головна</a></li>
-                <li><a href="catalog.php">Сукнi</a></li>
+            <ul class="row" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li><a href="/" itemprop="url"><span itemprop="name">Головна</span></a></li>
+                <li><a href="catalog.php" itemprop="url"><span itemprop="name">Сукнi</span></a></li>
             </ul>
         </div>
     </div>

@@ -2,11 +2,11 @@
     <section class="section-crambs">
         <div class="wrap">
             <div class="crumbs">
-                <ul class="row v-center row-wrap">
-                    <li><a href="/">Головна</a></li>
-                    <li><a href="news.php">Новини</a></li>
-                    <li><a href="catalog.php">КАК УДЕРЖАТЬСЯ ОТ ПОКУПКИ БАРХАТНОГО
-                            МАНТО? СОВЕТЫ ОТ НАДЕЖДЫ ЛИВИНСКОЙ</a></li>
+                <ul class="row v-center row-wrap" itemscope itemtype="https://schema.org/BreadcrumbList">
+                    <li><a href="/" itemprop="url"><span itemprop="name">Головна</span></a></li>
+                    <li><a href="news.php" itemprop="url"><span itemprop="name">Новини</span></a></li>
+                    <li><a href="#" itemprop="url"><span itemprop="name">КАК УДЕРЖАТЬСЯ ОТ ПОКУПКИ БАРХАТНОГО
+                            МАНТО? СОВЕТЫ ОТ НАДЕЖДЫ ЛИВИНСКОЙ</span></a></li>
                 </ul>
             </div>
         </div>
